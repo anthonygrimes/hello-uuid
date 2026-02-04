@@ -1,7 +1,7 @@
-name: On push to master
+name: On pull request
 
 on:
-  push:
+  pull_request:
     branches: [ "master" ]
 
 jobs:
