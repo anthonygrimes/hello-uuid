@@ -19,7 +19,7 @@ public class UuidController {
 
     @GetMapping
     public ResponseEntity<UUID> retrieveUuid() {
-        LOG.info("Received request to retrieve UUID.");
+        LOG.info("Received request to retrieve UUID");
 
         return ResponseEntity.ok(RANDOM_UUID);
     }
