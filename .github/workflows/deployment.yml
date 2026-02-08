@@ -13,7 +13,7 @@ jobs:
         with:
           fetch-tags: 'true'
       - name: Output available tags
-        run: /usr/bin/git show-ref --tags
+        run: /usr/bin/git for-each-ref --sort=-committerdate --format '%(refname:short)' refs/tags | head -n1
       - name: Login to GitHub container registry
         uses: docker/login-action@c94ce9fb468520275223c153574b00df6fe4bcc9 # v3.7.0
         with:
