@@ -25,8 +25,8 @@ jobs:
           distribution: 'liberica'
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@f29f5a9d7b09a7c6b29859002d29d24e1674c884 # v5.0.1
-      - name: Tag and Push Calendar Version
+      - name: Tag and push calendar version to repository
         uses: anthonygrimes/calver-action@b3a8b326092c6b053bb2cb0f72a3e0e23b7715d1 # 2026.2.1
         id: versioning
       - name: Build and publish docker image to docker repository
-        run: ./gradlew bootBuildImage --imageName=ghcr.io/anthonygrimes/hello-uuid:${{steps.versioning.outputs.version}}
+        run: ./gradlew bootBuildImage --imageName=ghcr.io/anthonygrimes/hello-uuid:${{steps.versioning.outputs.version}} --publishImage

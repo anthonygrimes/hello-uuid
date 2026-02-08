@@ -13,5 +13,5 @@ jobs:
     needs: build
     uses: ./.github/workflows/deployment.yml
     permissions:
-      packages: write
       contents: write
+      packages: write
