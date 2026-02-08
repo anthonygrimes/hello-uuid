@@ -7,6 +7,11 @@ on:
 jobs:
   build:
     uses: ./.github/workflows/build.yml
+    permissions:
+      contents: read
   deployment:
     needs: build
     uses: ./.github/workflows/deployment.yml
+    permissions:
+      packages: write
+      contents: write
