@@ -12,8 +12,6 @@ jobs:
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           fetch-tags: 'true'
-      - name: Output available tags
-        run: /usr/bin/git for-each-ref --sort=-committerdate --format '%(refname:short)' refs/tags | head -n1
       - name: Login to GitHub container registry
         uses: docker/login-action@c94ce9fb468520275223c153574b00df6fe4bcc9 # v3.7.0
         with:
@@ -28,7 +26,7 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@f29f5a9d7b09a7c6b29859002d29d24e1674c884 # v5.0.1
       - name: Tag and push calendar version to repository
-        uses: anthonygrimes/calver-action@b3a8b326092c6b053bb2cb0f72a3e0e23b7715d1 # 2026.2.1
+        uses: anthonygrimes/calver-action@d39071f0767a444d99d04b4435f15bf96df7a0eb # 2026.2.2
         id: versioning
       - name: Build and publish docker image to docker repository
         run: ./gradlew bootBuildImage --imageName=ghcr.io/anthonygrimes/hello-uuid:${{steps.versioning.outputs.version}} --publishImage
