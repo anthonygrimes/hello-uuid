@@ -26,7 +26,7 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@f29f5a9d7b09a7c6b29859002d29d24e1674c884 # v5.0.1
       - name: Tag and push calendar version to repository
-        uses: anthonygrimes/calver-action@d39071f0767a444d99d04b4435f15bf96df7a0eb # 2026.2.2
+        uses: anthonygrimes/calver-tag-action@f588b93c442b963813ad0ccbec4469b57501ce65 # 2026.2.0
         id: versioning
       - name: Build and publish docker image to docker repository
         run: ./gradlew bootBuildImage --imageName=ghcr.io/anthonygrimes/hello-uuid:${{steps.versioning.outputs.version}} --publishImage
