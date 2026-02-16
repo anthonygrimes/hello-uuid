@@ -9,9 +9,9 @@ jobs:
     uses: ./.github/workflows/build.yml
     permissions:
       contents: read
-#  deployment:
-#    needs: build
-#    uses: ./.github/workflows/deployment.yml
-#    permissions:
-#      contents: write
-#      packages: write
+  deployment:
+    needs: build
+    uses: ./.github/workflows/deployment.yml
+    permissions:
+      contents: write
+      packages: write
